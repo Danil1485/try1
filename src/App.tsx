@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Auth} from "./components/Auth/Auth";
+import {Cap} from "./components/Cap/Cap";
+import {Footer} from "./components/Footer/Footer";
+import {SideMenu} from "./components/SideMenu/SideMenu";
+import {Stream} from "./components/Stream/Stream";
+import {StreamWindow} from "./components/StreamWindow/StreamWindow";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Cap/>
+        <StreamWindow/>
+        <Footer/>
     </div>
   );
 }
