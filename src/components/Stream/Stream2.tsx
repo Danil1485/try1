@@ -9,7 +9,6 @@ export function Stream2() {
 
             </div>
 
-
         </div>
     )
 }
