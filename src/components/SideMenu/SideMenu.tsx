@@ -20,7 +20,7 @@ export function SideMenu() {
                 <button
                     onClick={buttonHandler}
                     className={`button ${clickedButton === 'button 1' ? 'active' : ''}`}
-                    name="button 1"
+                    name="Зал 1"
                 >
                     Зал 1
                 </button>
@@ -28,7 +28,7 @@ export function SideMenu() {
                 <button
                     onClick={buttonHandler}
                     className={`button ${clickedButton === 'button 2' ? 'active' : ''}`}
-                    name="button 2"
+                    name="Зал 2"
                 >
                     Зал 2
                 </button>
