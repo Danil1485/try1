@@ -50,3 +50,14 @@ export const Cameras = (handle: any, code:any) => {
     return Api().get(`neurosocket/cameras/room/${code}`).then(r => handle(r.data))
 }
 
+export const PostData = (handle: any, value: any) =>{
+    console.log(value)
+    const formData = new FormData();
+    formData.append("file", value)
+    return axios.create({baseURL: "http://37.204.47.201:5010"}).post("label" , formData, {
+        headers: {
+            "Content-Type":"multipart/form-data"
+        },
+        data: formData
+    }).then(e => handle(e.data))
+}
