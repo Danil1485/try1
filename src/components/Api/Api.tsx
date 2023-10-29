@@ -1,4 +1,5 @@
 import axios from "axios";
+import {GetRoomsResponse} from "../Stream/Stream";
 
 const instance = (token: string) => {
     return axios.create({
@@ -41,3 +42,11 @@ export const Test = () => {
     console.log(promise())
     return promise()
 }
+
+export const Rooms = (handle: any) => {
+    return Api().get("neurosocket/cameras/rooms").then(r => handle(r.data))
+}
+export const Cameras = (handle: any, code:any) => {
+    return Api().get(`neurosocket/cameras/room/${code}`).then(r => handle(r.data))
+}
+

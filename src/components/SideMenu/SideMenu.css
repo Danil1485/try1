@@ -1,13 +1,12 @@
 .container1{
-    height: 100%;
     width: 10%;
+    background-color: #5C636E;
 }
 
 .buttonContainer{
     display: flex;
     flex-direction: column;
     justify-content:center;
-    height: 95vh;
     background-color: #5C636E;
 
 }

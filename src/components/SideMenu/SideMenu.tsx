@@ -1,5 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './SideMenu.css'
+import {Rooms} from "../Api/Api";
+import {Cam, RoomsModel} from "../Stream/Stream";
+import {useNavigate} from "react-router-dom";
 
 
 export function SideMenu() {
@@ -7,33 +10,32 @@ export function SideMenu() {
 
     const [clickedButton, setClickedButton] = useState('');
 
+    const navigate = useNavigate();
 
-    const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
 
-        const button: HTMLButtonElement = event.currentTarget;
-        setClickedButton(button.name);
+
+    const [rooms, setRooms] = useState<Array<RoomsModel>>()
+
+    const handelRoom = (data: any) => {
+        setRooms(data)
+    }
+    const buttonHandler = (code: any) => {
+        navigate(`/stream/${code}`)
     };
-    return(
+    useEffect(() => {
+        Rooms(handelRoom)
+    }, [])
+    console.log(rooms)
+    return (
         <div className={'container1'}>
-            <form className={'buttonContainer'}>
+            {rooms?.map((item) => (
                 <button
-                    onClick={buttonHandler}
-                    className={`button ${clickedButton === 'button 1' ? 'active' : ''}`}
-                    name="Зал 1"
-                >
-                    Зал 1
-                </button>
-
-                <button
-                    onClick={buttonHandler}
+                    onClick={() => buttonHandler(item.code)}
                     className={`button ${clickedButton === 'button 2' ? 'active' : ''}`}
-                    name="Зал 2"
                 >
-                    Зал 2
+                    {item.name}
                 </button>
-
-            </form>
+            ))}
 
         </div>
     )

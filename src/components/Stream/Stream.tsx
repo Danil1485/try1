@@ -1,66 +1,42 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Stream.css'
-import axios from "axios";
+import {Rooms} from "../Api/Api";
+import {useParams} from "react-router-dom";
+
 
 interface Page {
-    name:string
+    name: string
 }
-interface Rooms {
-    code:string,
-    name:string
+
+export interface RoomsModel {
+    code: string,
+    name: string
 }
-interface Cam {
-    code:string,
-    room:string,
-    status:string,
-    link:string
+
+export interface Cam {
+    code: string,
+    room: string,
+    status: string,
+    link: string
 }
-type GetRoomsResponse = {
-    data: Rooms[];
+
+export type GetRoomsResponse = {
+    data: RoomsModel[];
 };
+interface props{
+    code : string,
+    link: string
+}
+
+export function Stream(props: props) {
 
 
-export function Stream() {
-
-    async function getRooms(): Promise<GetRoomsResponse | string> {
-        try {
-            const response: Response = await fetch('https://api.foxworld.online/neurosocket/cameras/rooms', {
-                method: 'GET',
-
-            });
-
-            if (!response.ok) {
-                throw new Error(`Error! status: ${response.status}`);
-            }
-            const result: GetRoomsResponse = (await response.json()) as GetRoomsResponse;
-
-            console.log('result is: ', JSON.stringify(result, null, 4));
-
-            return result;
-        } catch (error) {
-            if (error instanceof Error) {
-                console.log('error message: ', error.message);
-                return error.message;
-            } else {
-                console.log('unexpected error: ', error);
-                return 'An unexpected error occurred';
-            }
-        }
-    }
-    getRooms();
-    const [id, setId] = useState<Page>({name:'Зал 1'});
-
-    return(
+    return (
         <div className={'StreamBlocksMenu'}>
-
-
             <div className={'StreamBlock'}>
-                {/*<h3 className="mt-5">Live Streaming</h3>*/}
-                {/*<img src="{{ url_for('video_feed') }}"/>*/}
-
+                {/*37.204.47.201:5005/video_feed*/}
+                <img src={`http://foxworld.online:25601/capture_cam/${props.link}`}/>
             </div>
-
-
         </div>
     )
 }
