@@ -1,0 +1,31 @@
+.inpFile {
+    background-color: #5C636E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 300px;
+    color: white;
+    font-size: 25px;
+    border-radius: 5px;
+    width: 15%;
+    margin: auto;
+}
+.Send {
+    border-radius: 5px;
+    background-color: #FC6E00;
+    padding: 10px 20px;
+    color: white;
+    font-size:20px;
+}
+.inpFile input {
+
+    font-size:15px;
+}
+.test {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}

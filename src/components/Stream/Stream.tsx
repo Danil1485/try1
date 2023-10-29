@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './Stream.css'
 import {Rooms} from "../Api/Api";
 import {useParams} from "react-router-dom";
+import {Cams} from "./Stream2";
 
 
 interface Page {
@@ -33,10 +34,7 @@ export function Stream(props: props) {
 
     return (
         <div className={'StreamBlocksMenu'}>
-            <div className={'StreamBlock'}>
-                {/*37.204.47.201:5005/video_feed*/}
-                <img src={`http://foxworld.online:25601/capture_cam/${props.link}`}/>
-            </div>
+            <Cams code={props.code} link={props.link}/>
         </div>
     )
 }

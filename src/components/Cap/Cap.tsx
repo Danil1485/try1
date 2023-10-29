@@ -7,8 +7,8 @@ export function Cap() {
     return(
         <div className="header">
             <img className='logo' src={logo} width={60}/>
-            <p onClick={() =>{navigate("/images")}}>Изображения</p>
-            <p onClick={() =>{navigate("/")}}>Камеры</p>
+            <p className={'buttonsCap'} onClick={() =>{navigate("/images")}}>Изображения</p>
+            <p className={'buttonsCap'} onClick={() =>{navigate("/")}}>Камеры</p>
         </div>
     )
 }

@@ -5,7 +5,7 @@ import {Footer} from "../Footer/Footer";
 function MainPage() {
     return (
         <>
-            <Cap/>
+
             <StreamWindow/>
             <Footer/>
         </>

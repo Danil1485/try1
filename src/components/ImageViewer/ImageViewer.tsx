@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {PostData} from "../Api/Api";
 import {Footer} from "../Footer/Footer";
 import {Cap} from "../Cap/Cap";
+import './ImageViewer.css'
 
 interface dataItem {
     errors: boolean,
@@ -28,18 +29,18 @@ function ImageViewer() {
     }
 
     return (
-        <>
+        <div className={'test'}>
             <Cap/>
-            <>
+            <div className={'inpFile'}>
                 <input type="file" onChange={(e) => {
                     handleSend(e)
                 }}/>
-                <button onClick={Send}>Send
+                <button className={'Send'} onClick={Send}>Send
                 </button>
                 {data?.prediction}
-            </>
+            </div>
             <Footer/>
-        </>
+        </div>
     )
 }
 

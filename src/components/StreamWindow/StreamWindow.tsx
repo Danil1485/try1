@@ -6,6 +6,7 @@ import {useParams} from "react-router-dom";
 import {Cap} from "../Cap/Cap";
 import {Footer} from "../Footer/Footer";
 import {Cameras} from "../Api/Api";
+import {Cams} from "../Stream/Stream2";
 
 export function StreamWindow() {
     const {code} = useParams()
@@ -25,13 +26,13 @@ export function StreamWindow() {
             <Cap/>
             <div className={'StreamWindow'}>
                 <SideMenu/>
-                <>
+                <div className={'StreamBlocksMenu'}>
                     {
                         cameras?.map((item) => (
-                            <Stream code={item.code} link={item.link}/>
+                            <Cams code={item.code} link={item.link}/>
                         ))
                     }
-                </>
+                </div>
             </div>
             <Footer/>
         </>
